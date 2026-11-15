@@ -1,0 +1,868 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f7fb">
+    <meta name="description" content="Biogen-Space-id, ruang kerja partner.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Biogen-Space-id">
+    <meta property="og:description" content="Ruang kerja partner.">
+    <title>Biogen-Space-id</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Poppins", sans-serif;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        --navy: #102a50;
+        --blue: #2764a5;
+        --blue-dark: #194d86;
+        --ink: #172b45;
+        --muted: #53677f;
+        --paper: #f4f7fb;
+        --white: #fff;
+        --line: #7b8fa6;
+        --glass: rgb(255 255 255 / 14%);
+        --radius-card: 18px;
+        --radius-control: 12px;
+      }
+
+      /* Poppins keeps partner labels approachable; navy anchors the workspace; the menu-first grid follows equal-priority tools and reflows for phones; glass and motion lift the active menu; sharing stays in the header across screen sizes. Dials: ENERGY 1 / RHYTHM 2 / MOTION 2. */
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-bottom: 96px;
+      }
+
+      body {
+        min-width: 320px;
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      button,
+      a {
+        color: inherit;
+        font: inherit;
+        cursor: pointer;
+      }
+
+      button:focus-visible,
+      a:focus-visible {
+        outline: 3px solid var(--blue);
+        outline-offset: 3px;
+      }
+
+      .skip-link {
+        position: absolute;
+        z-index: 5;
+        top: 8px;
+        left: 8px;
+        padding: 10px 14px;
+        transform: translateY(-160%);
+        border-radius: 8px;
+        background: var(--white);
+        color: var(--navy);
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      .site-header {
+        position: relative;
+        z-index: 1;
+        border-bottom: 1px solid var(--line);
+        background: var(--white);
+      }
+
+      .header-inner {
+        display: flex;
+        width: min(1120px, calc(100% - 48px));
+        min-height: 76px;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: space-between;
+        gap: 28px;
+      }
+
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .wordmark {
+        display: inline-flex;
+        min-height: 44px;
+        align-items: center;
+        gap: 11px;
+        color: var(--navy);
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: -0.035em;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .wordmark-mark {
+        display: grid;
+        width: 30px;
+        height: 30px;
+        place-items: center;
+        border: 1px solid #9db8d5;
+        border-radius: 9px;
+        color: var(--blue);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .desktop-nav {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .nav-button {
+        min-height: 44px;
+        padding: 0 14px;
+        border: 0;
+        border-radius: var(--radius-control);
+        background: transparent;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: background-color 160ms ease, color 160ms ease;
+      }
+
+      .nav-button:hover,
+      .nav-button[aria-current="page"] {
+        background: #eaf1f8;
+        color: var(--navy);
+      }
+
+      .nav-button:active,
+      .menu-row:active {
+        transform: scale(0.99);
+      }
+
+      .share-button {
+        min-width: 104px;
+        min-height: 44px;
+        padding: 0 15px;
+        border: 1px solid var(--navy);
+        border-radius: var(--radius-control);
+        background: var(--navy);
+        color: var(--white);
+        font-size: 13px;
+        font-weight: 500;
+        transition: background-color 160ms ease, transform 160ms ease;
+      }
+
+      .share-button:hover {
+        background: var(--blue-dark);
+      }
+
+      .share-button:active {
+        transform: scale(0.98);
+      }
+
+      .share-status {
+        width: min(1120px, calc(100% - 48px));
+        margin: 10px auto 0;
+        color: var(--navy);
+        font-size: 13px;
+      }
+
+      .share-status:empty {
+        display: none;
+      }
+
+      main {
+        width: min(1120px, calc(100% - 48px));
+        margin: 0 auto;
+        padding: 36px 0 80px;
+      }
+
+      .welcome-panel {
+        position: relative;
+        overflow: hidden;
+        min-height: 230px;
+        padding: clamp(26px, 5vw, 52px);
+        border: 1px solid rgb(255 255 255 / 24%);
+        border-radius: 26px;
+        background:
+          linear-gradient(118deg, rgb(16 42 80 / 96%), rgb(31 77 128 / 94%));
+        box-shadow: 0 16px 38px rgb(16 42 80 / 12%);
+        color: var(--white);
+      }
+
+      .welcome-panel::after {
+        position: absolute;
+        right: -80px;
+        bottom: -180px;
+        width: 440px;
+        height: 310px;
+        transform: rotate(-24deg);
+        border: 1px solid rgb(255 255 255 / 18%);
+        border-radius: 48%;
+        background: var(--glass);
+        content: "";
+        pointer-events: none;
+      }
+
+      .welcome-copy {
+        position: relative;
+        z-index: 1;
+        max-width: 570px;
+      }
+
+      .welcome-panel h1 {
+        max-width: 560px;
+        margin: 0;
+        font-size: clamp(30px, 5vw, 46px);
+        font-weight: 600;
+        letter-spacing: -0.055em;
+        line-height: 1.18;
+      }
+
+      .welcome-panel p {
+        margin: 14px 0 0;
+        color: #e1eaf4;
+        font-size: 15px;
+      }
+
+      .section-heading {
+        display: flex;
+        margin: 38px 0 16px;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .section-heading h2 {
+        margin: 0;
+        color: var(--navy);
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: -0.035em;
+      }
+
+      .section-heading p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .menu-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .menu-row {
+        display: flex;
+        min-width: 0;
+        min-height: 94px;
+        padding: 17px 18px;
+        align-items: center;
+        gap: 15px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-card);
+        background: var(--white);
+        text-align: left;
+        transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+      }
+
+      .menu-row:hover {
+        border-color: #9db9d7;
+        background: #fbfdff;
+      }
+
+      .menu-mark {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        flex: 0 0 42px;
+        place-items: center;
+        border: 1px solid #d5e3f1;
+        border-radius: 13px;
+        background: #edf4fb;
+        color: var(--blue-dark);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .menu-copy {
+        min-width: 0;
+        flex: 1;
+      }
+
+      .menu-copy strong {
+        display: block;
+        color: var(--navy);
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .menu-copy span {
+        display: block;
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .row-cue {
+        width: 9px;
+        height: 9px;
+        flex: 0 0 9px;
+        transform: rotate(45deg);
+        border-top: 1.5px solid #74879c;
+        border-right: 1.5px solid #74879c;
+      }
+
+      .page-note {
+        margin: 22px 0 0;
+        color: #53677f;
+        font-size: 12px;
+      }
+
+      .mobile-nav {
+        display: none;
+      }
+
+      dialog {
+        width: min(480px, calc(100% - 32px));
+        max-width: none;
+        max-height: min(620px, calc(100dvh - 32px));
+        padding: 0;
+        transform: translateY(14px) scale(0.985);
+        border: 1px solid rgb(255 255 255 / 54%);
+        border-radius: 22px;
+        background: rgb(255 255 255 / 94%);
+        box-shadow: 0 24px 80px rgb(5 26 54 / 28%);
+        color: var(--ink);
+        opacity: 0;
+        transition: opacity 220ms ease, transform 220ms cubic-bezier(0.2, 0.75, 0.3, 1);
+        backdrop-filter: blur(18px);
+      }
+
+      dialog[open].is-visible {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+
+      dialog::backdrop {
+        background: rgb(8 25 48 / 42%);
+        opacity: 0;
+        transition: opacity 220ms ease;
+      }
+
+      dialog[open].is-visible::backdrop {
+        opacity: 1;
+      }
+
+      .dialog-inner {
+        padding: 25px;
+      }
+
+      .dialog-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .dialog-kicker {
+        margin: 0 0 5px;
+        color: var(--blue-dark);
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .dialog-top h2 {
+        margin: 0;
+        color: var(--navy);
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: -0.04em;
+        line-height: 1.3;
+        overflow-wrap: anywhere;
+      }
+
+      .close-button {
+        display: grid;
+        width: 44px;
+        height: 44px;
+        flex: 0 0 44px;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: var(--white);
+        color: var(--navy);
+        font-size: 21px;
+        line-height: 1;
+        transition: background-color 160ms ease;
+      }
+
+      .close-button:hover {
+        background: #eaf1f8;
+      }
+
+      .empty-state {
+        display: grid;
+        min-height: 180px;
+        margin-top: 22px;
+        padding: 24px;
+        place-items: center;
+        border: 1px dashed #9fb3c9;
+        border-radius: 16px;
+        background: #f7f9fc;
+        text-align: center;
+      }
+
+      .empty-state p {
+        max-width: 290px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      body:has(dialog[open]) {
+        overflow: hidden;
+      }
+
+      @media (min-width: 761px) and (max-width: 920px) {
+        .header-inner {
+          position: relative;
+          min-height: auto;
+          padding: 10px 0 6px;
+          flex-wrap: wrap;
+          gap: 0;
+        }
+
+        .header-actions {
+          display: contents;
+        }
+
+        .desktop-nav {
+          order: 2;
+          flex: 1 0 100%;
+          flex-wrap: wrap;
+          justify-content: center;
+          padding-top: 8px;
+        }
+
+        .share-button {
+          position: absolute;
+          top: 10px;
+          right: 0;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .header-inner,
+        main {
+          width: min(100% - 32px, 560px);
+        }
+
+        .header-inner {
+          min-height: 64px;
+          gap: 10px;
+        }
+
+        .header-actions {
+          gap: 0;
+        }
+
+        .share-button {
+          min-width: 88px;
+          padding: 0 12px;
+        }
+
+        .desktop-nav {
+          display: none;
+        }
+
+        main {
+          padding: 20px 0 100px;
+        }
+
+        .welcome-panel {
+          min-height: 205px;
+          padding: 28px 24px;
+          border-radius: 22px;
+        }
+
+        .welcome-panel::after {
+          right: -190px;
+          bottom: -205px;
+        }
+
+        .welcome-panel h1 {
+          font-size: clamp(29px, 8vw, 38px);
+        }
+
+        .welcome-panel p {
+          max-width: 300px;
+          font-size: 14px;
+        }
+
+        .section-heading {
+          display: block;
+          margin-top: 30px;
+        }
+
+        .section-heading p {
+          margin-top: 3px;
+        }
+
+        .menu-list {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 9px;
+        }
+
+        .menu-row {
+          min-height: 82px;
+          padding: 14px;
+        }
+
+        .mobile-nav {
+          position: fixed;
+          z-index: 2;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          display: grid;
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+          padding: 7px 8px calc(7px + env(safe-area-inset-bottom));
+          border-top: 1px solid var(--line);
+          background: rgb(255 255 255 / 97%);
+        }
+
+        .mobile-nav button,
+        .mobile-nav a {
+          display: grid;
+          min-width: 0;
+          min-height: 52px;
+          padding: 4px 2px;
+          place-items: center;
+          align-content: center;
+          gap: 2px;
+          border: 0;
+          border-radius: 10px;
+          background: transparent;
+          color: var(--muted);
+          font-size: 10px;
+          font-weight: 500;
+          line-height: 1.25;
+          text-align: center;
+          text-decoration: none;
+          transition: background-color 160ms ease, color 160ms ease;
+        }
+
+        .mobile-nav button:hover,
+        .mobile-nav a:hover,
+        .mobile-nav button[aria-current="page"],
+        .mobile-nav a[aria-current="page"] {
+          background: #eaf1f8;
+          color: var(--navy);
+        }
+
+        .mobile-nav button:active,
+        .mobile-nav a:active {
+          background: #dce9f6;
+        }
+
+        .mobile-nav-mark {
+          color: var(--blue-dark);
+          font-size: 13px;
+          font-weight: 700;
+        }
+
+        .page-note {
+          max-width: 310px;
+          margin-bottom: 12px;
+        }
+
+        .share-status {
+          width: min(100% - 32px, 560px);
+          margin-top: 8px;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .header-inner,
+        main {
+          width: calc(100% - 24px);
+        }
+
+        .mobile-nav {
+          padding-right: 4px;
+          padding-left: 4px;
+        }
+
+        .mobile-nav button,
+        .mobile-nav a {
+          font-size: 9px;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .wordmark {
+          gap: 7px;
+          font-size: 13px;
+        }
+
+        .share-button {
+          min-width: 80px;
+          padding: 0 9px;
+          font-size: 12px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Lewati ke konten</a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="wordmark" href="#main" aria-label="Ruang Partner, beranda">
+          <span class="wordmark-mark" aria-hidden="true">B</span>
+          <span>Biogen-Space-id</span>
+        </a>
+        <div class="header-actions">
+          <nav class="desktop-nav" aria-label="Navigasi utama">
+            <a class="nav-button" href="#main" aria-current="page">Beranda</a>
+            <button class="nav-button" type="button" data-menu="Katalog">Katalog</button>
+            <button class="nav-button" type="button" data-menu="Presentasi">Presentasi</button>
+            <button class="nav-button" type="button" data-menu="Tanya">Tanya</button>
+            <button class="nav-button" type="button" data-menu="Pengembangan Diri">Pengembangan diri</button>
+            <button class="nav-button" type="button" data-menu="Profil">Profil</button>
+          </nav>
+          <button class="share-button" id="share-button" type="button">Bagikan</button>
+        </div>
+      </div>
+    </header>
+    <p class="share-status" id="share-status" role="status" aria-live="polite"></p>
+
+    <main id="main">
+      <section class="welcome-panel" aria-labelledby="page-title">
+        <div class="welcome-copy">
+          <h1 id="page-title">Ruang kerja partner</h1>
+          <p>Pilih menu untuk membuka panel. Isi menu masih dikosongkan untuk demo.</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="menu-title">
+        <div class="section-heading">
+          <h2 id="menu-title">Menu</h2>
+          <p>Tekan menu untuk melihat jendela demo.</p>
+        </div>
+        <div class="menu-list">
+          <button class="menu-row" type="button" data-menu="e-Katalog">
+            <span class="menu-mark" aria-hidden="true">e</span>
+            <span class="menu-copy">
+              <strong>e-Katalog</strong>
+              <span>Inaproc, reagen &amp; QC</span>
+            </span>
+            <span class="row-cue" aria-hidden="true"></span>
+          </button>
+          <button class="menu-row" type="button" data-menu="Katalog alat">
+            <span class="menu-mark" aria-hidden="true">K</span>
+            <span class="menu-copy">
+              <strong>Katalog alat</strong>
+              <span>Spesifikasi &amp; brosur</span>
+            </span>
+            <span class="row-cue" aria-hidden="true"></span>
+          </button>
+          <button class="menu-row" type="button" data-menu="Presentasi">
+            <span class="menu-mark" aria-hidden="true">P</span>
+            <span class="menu-copy">
+              <strong>Presentasi</strong>
+              <span>Susun presentasi</span>
+            </span>
+            <span class="row-cue" aria-hidden="true"></span>
+          </button>
+          <button class="menu-row" type="button" data-menu="Layar Event">
+            <span class="menu-mark" aria-hidden="true">E</span>
+            <span class="menu-copy">
+              <strong>Layar Event</strong>
+              <span>Untuk booth &amp; seminar</span>
+            </span>
+            <span class="row-cue" aria-hidden="true"></span>
+          </button>
+          <button class="menu-row" type="button" data-menu="Layout Lab">
+            <span class="menu-mark" aria-hidden="true">L</span>
+            <span class="menu-copy">
+              <strong>Layout Lab</strong>
+              <span>Rancang denah lab &amp; posisi alat</span>
+            </span>
+            <span class="row-cue" aria-hidden="true"></span>
+          </button>
+        </div>
+      </section>
+
+      <p class="page-note">Konsep dummy untuk tampilan desktop dan browser ponsel.</p>
+    </main>
+
+    <nav class="mobile-nav" aria-label="Navigasi ponsel">
+      <a href="#main" aria-current="page">
+        <span class="mobile-nav-mark" aria-hidden="true">R</span>
+        <span>Beranda</span>
+      </a>
+      <button type="button" data-menu="Katalog">
+        <span class="mobile-nav-mark" aria-hidden="true">K</span>
+        <span>Katalog</span>
+      </button>
+      <button type="button" data-menu="Presentasi">
+        <span class="mobile-nav-mark" aria-hidden="true">P</span>
+        <span>Presentasi</span>
+      </button>
+      <button type="button" data-menu="Tanya">
+        <span class="mobile-nav-mark" aria-hidden="true">T</span>
+        <span>Tanya</span>
+      </button>
+      <button type="button" data-menu="Profil">
+        <span class="mobile-nav-mark" aria-hidden="true">A</span>
+        <span>Profil</span>
+      </button>
+    </nav>
+
+    <dialog aria-labelledby="dialog-title" aria-describedby="dialog-description">
+      <div class="dialog-inner">
+        <div class="dialog-top">
+          <div>
+            <p class="dialog-kicker">Panel demo</p>
+            <h2 id="dialog-title">Menu</h2>
+          </div>
+          <button class="close-button" type="button" aria-label="Tutup panel">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="empty-state">
+          <p id="dialog-description">Isi menu ini sengaja dikosongkan untuk demo.</p>
+        </div>
+      </div>
+    </dialog>
+
+    <script>
+      const dialog = document.querySelector("dialog");
+      const dialogTitle = document.querySelector("#dialog-title");
+      const closeButton = document.querySelector(".close-button");
+      const shareButton = document.querySelector("#share-button");
+      const shareStatus = document.querySelector("#share-status");
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      let returnFocus = null;
+      let closeTimer = null;
+
+      function openMenu(name, trigger) {
+        if (dialog.open) {
+          dialog.close();
+        }
+
+        window.clearTimeout(closeTimer);
+        returnFocus = trigger;
+        dialogTitle.textContent = name;
+        dialog.showModal();
+        requestAnimationFrame(() => dialog.classList.add("is-visible"));
+        closeButton.focus();
+      }
+
+      function closeMenu() {
+        if (!dialog.open) return;
+
+        dialog.classList.remove("is-visible");
+        if (reduceMotion.matches) {
+          dialog.close();
+          return;
+        }
+
+        window.clearTimeout(closeTimer);
+        closeTimer = window.setTimeout(() => {
+          if (dialog.open) dialog.close();
+        }, 240);
+      }
+
+      async function sharePage() {
+        if (window.location.protocol === "file:") {
+          shareStatus.textContent = "Dummy ini belum di-host. Upload ke hosting agar tautannya bisa dibuka orang lain.";
+          return;
+        }
+
+        const shareData = {
+          title: "Biogen-Space-id",
+          text: "Ruang kerja partner.",
+          url: window.location.href.split("#")[0],
+        };
+        shareStatus.textContent = "";
+
+        if (navigator.share) {
+          try {
+            await navigator.share(shareData);
+            shareStatus.textContent = "Tautan Biogen-Space-id siap dibagikan.";
+            return;
+          } catch (error) {
+            if (error.name === "AbortError") {
+              shareStatus.textContent = "Berbagi dibatalkan.";
+              return;
+            }
+          }
+        }
+
+        try {
+          await navigator.clipboard.writeText(shareData.url);
+          shareStatus.textContent = "Tautan Biogen-Space-id disalin. Tempelkan untuk membagikannya.";
+        } catch (error) {
+          shareStatus.textContent = "Tautan belum dapat disalin. Salin alamat halaman dari bilah alamat browser.";
+        }
+      }
+
+      document.querySelectorAll("[data-menu]").forEach((item) => {
+        item.addEventListener("click", () => openMenu(item.dataset.menu, item));
+      });
+
+      shareButton.addEventListener("click", sharePage);
+      closeButton.addEventListener("click", closeMenu);
+      dialog.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          event.preventDefault();
+          closeMenu();
+        }
+      });
+      dialog.addEventListener("cancel", (event) => {
+        event.preventDefault();
+        closeMenu();
+      });
+      dialog.addEventListener("click", (event) => {
+        if (event.target === dialog) closeMenu();
+      });
+      dialog.addEventListener("close", () => {
+        window.clearTimeout(closeTimer);
+        if (returnFocus && document.contains(returnFocus)) returnFocus.focus();
+      });
+    </script>
+  </body>
+</html>
